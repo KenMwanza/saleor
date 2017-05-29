@@ -13,7 +13,7 @@ DEBUG = ast.literal_eval(os.environ.get('DEBUG', 'True'))
 
 SITE_ID = 1
 
-PROJECT_ROOT = os.path.normpath(os.path.join(os.path.dirname(__file__), '..'))
+PROJECT_ROOT = os.path.normpath(os.path.join(os.path.dirname(__file__), '../..'))
 
 ROOT_URLCONF = 'saleor.urls'
 
@@ -110,11 +110,9 @@ loaders = [
 if not DEBUG:
     loaders = [('django.template.loaders.cached.Loader', loaders)]
 
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-
 TEMPLATES = [{
     'BACKEND': 'django.template.backends.django.DjangoTemplates',
-    'DIRS': join(BASE_DIR,  'templates'),
+    'DIRS': [os.path.join(PROJECT_ROOT, 'templates')],
     'OPTIONS': {
         'debug': DEBUG,
         'context_processors': context_processors,
