@@ -9,9 +9,9 @@ except ImportError:
     from urllib import urlencode
 from django.http import HttpResponseRedirect
 
-from .forms import DummyForm
-from .. import PaymentError, PaymentStatus, RedirectNeeded
-from ..core import BasicProvider
+from .forms import LipaNaMpesaForm
+from payments import PaymentError, PaymentStatus, RedirectNeeded
+from payments.core import BasicProvider
 
 
 class LipaNaMpesaProvider(BasicProvider):
