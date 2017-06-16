@@ -166,6 +166,8 @@ INSTALLED_APPS = [
     'saleor.site',
     'saleor.data_feeds',
 
+    'lipa_na_mpesa',
+
     # External apps
     'versatileimagefield',
     'babeldjango',
@@ -256,13 +258,13 @@ PAYMENT_HOST = get_host
 PAYMENT_MODEL = 'order.Payment'
 
 PAYMENT_VARIANTS = {
-    'default': ('payments.dummy.DummyProvider', {})}
+    'lipa_na_mpesa': ('')}
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
 SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
 
 CHECKOUT_PAYMENT_CHOICES = [
-    ('default', 'Dummy provider')]
+    ('lipa_na_mpesa', 'Mpesa')]
 
 MESSAGE_TAGS = {
     messages.ERROR: 'danger'}
