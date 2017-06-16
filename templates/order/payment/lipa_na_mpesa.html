@@ -1,0 +1,14 @@
+{% extends "order/payment/details.html" %}
+{% load bootstrap_form from bootstrap3 %}
+{% load i18n %}
+
+{% block forms %}
+<ul>
+  <li>Go to M-Pesa on your phone</li>
+  <li>Choose "Pay Bill" from the M-PESA menu</li>
+  <li>Enter Business Number: <b>530037</b></li>
+  <li>Enter your Order number as the account number: 29361</li>
+  <li>Enter the Price as the amount: {{ total }}</li>
+  <li>Enter your secret PIN and press OK</li>
+</ul>
+{% endblock %}

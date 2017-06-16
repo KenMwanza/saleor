@@ -9,7 +9,7 @@ from django.contrib.messages import constants as messages
 import django_cache_url
 
 
-DEBUG = ast.literal_eval(os.environ.get('DEBUG', 'True'))
+DEBUG = ast.literal_eval(os.environ.get('DEBUG', 'False'))
 
 SITE_ID = 1
 

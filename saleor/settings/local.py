@@ -258,7 +258,7 @@ PAYMENT_MODEL = 'order.Payment'
 
 PAYMENT_VARIANTS = {
     'default': ('payments.dummy.DummyProvider', {}),
-    'lipa_na_mpesa': ('lipa_na_mpesa.LipaNaMpesaProvider')}
+    'lipa_na_mpesa': ('')}
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.JSONSerializer'
 SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'

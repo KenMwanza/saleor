@@ -18,6 +18,8 @@ from ..registration.forms import LoginForm
 from ..userprofile.models import User
 from . import OrderStatus
 
+from lipa_na_mpesa.forms import LipaNaMpesaForm
+
 logger = logging.getLogger(__name__)
 
 
@@ -99,7 +101,7 @@ def start_payment(request, order, variant):
             variant=variant, status=PaymentStatus.WAITING, order=order,
             defaults=defaults)
         try:
-            form = payment.get_form(data=request.POST or None)
+            data = defaults
         except RedirectNeeded as redirect_to:
             return redirect(str(redirect_to))
         except Exception:
@@ -114,7 +116,7 @@ def start_payment(request, order, variant):
             return redirect('order:payment', token=order.token)
     template = 'order/payment/%s.html' % variant
     return TemplateResponse(request, [template, 'order/payment/default.html'],
-                            {'form': form, 'payment': payment})
+                            {'total': total.gross, 'payment': payment})
 
 
 @check_order_status
